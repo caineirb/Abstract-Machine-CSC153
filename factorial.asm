@@ -1,0 +1,1 @@
+PUSH 5; POP M[n]; PUSH 1; POP M[result]; LAB loop; PUSH M[n]; PUSH 1; LE; JZ continue; J end; LAB continue; PUSH M[result]; PUSH M[n]; MUL; POP M[result]; PUSH M[n]; PUSH 1; SUB; POP M[n]; J loop; LAB end; HLT
