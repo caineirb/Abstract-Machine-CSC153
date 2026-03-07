@@ -151,10 +151,10 @@ def main() -> None:
         state = initial_state(code)
         final_state = run(state=state)
 
-        print(f"Final state: {final_state}")
+        print(f"Final (stack, memory): {final_state[1:]}")
     except (ValueError, KeyError, IndexError) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         sys.exit(1)
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
