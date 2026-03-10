@@ -6,16 +6,16 @@ Run with: python3 test_machine.py
 import sys
 sys.path.insert(0, '.')
 
-from abstract_machine import asm_parser, run, initial_state
+from machine import assemble, initstate, meval
 
 PASS = "\033[92mPASS\033[0m"
 FAIL = "\033[91mFAIL\033[0m"
 
 
 def check(label: str, src: str, expected_stack: list, expected_memory: dict | None = None):
-    code = asm_parser(src)
-    state = initial_state(code)
-    final_state = run(state)
+    code = assemble(src)
+    state = initstate(code)
+    final_state = meval(state)
     _, stack, memory = final_state  # Extract stack and memory from (code, stack, memory)
     
     stack_match = stack == expected_stack
